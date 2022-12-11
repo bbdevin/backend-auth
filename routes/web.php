@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\SocialLoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+
+Route::get('api/auth/{provider}/redirect', [SocialLoginController::class, 'redirectToProvider'])
+    ->name('auth.socialite.redirect');
+
+Route::get('api/auth/{provider}/callback', [SocialLoginController::class, 'handleProviderCallback'])
+    ->name('auth.socialite.callback');

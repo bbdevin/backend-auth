@@ -186,7 +186,7 @@ return [
          * Package Service Providers...
          */
         \SocialiteProviders\Manager\ServiceProvider::class, // add
-
+        \App\Providers\FortifyServiceProvider::class,
 
         /*
          * Application Service Providers...
