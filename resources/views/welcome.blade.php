@@ -396,11 +396,21 @@
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
+                    {{ Auth::user()->name }}
                     <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
                 @else
                     <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
                     <a href="{{ route('auth.socialite.redirect', 'github') }}"
                         class="text-sm text-gray-700 dark:text-gray-500 underline">Github Log
+                        in</a>
+                    <a href="{{ route('auth.socialite.redirect', 'google') }}"
+                        class="text-sm text-gray-700 dark:text-gray-500 underline">Google Log
+                        in</a>
+                    <a href="{{ route('auth.socialite.redirect', 'discord') }}"
+                        class="text-sm text-gray-700 dark:text-gray-500 underline">Discord Log
+                        in</a>
+                    <a href="{{ route('auth.socialite.redirect', 'line') }}"
+                        class="text-sm text-gray-700 dark:text-gray-500 underline">Line Log
                         in</a>
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}"
